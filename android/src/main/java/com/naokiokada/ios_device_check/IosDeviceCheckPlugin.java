@@ -8,7 +8,7 @@ import io.flutter.plugin.common.PluginRegistry.Registrar;
 
 public class IosDeviceCheckPlugin implements MethodCallHandler {
   public static void registerWith(Registrar registrar) {
-    final MethodChannel channel = new MethodChannel(registrar.messenger(), "com.naokiokada/ios_device_check");
+    final MethodChannel channel = new MethodChannel(registrar.messenger(), "naokiokada.com/ios_device_check");
     channel.setMethodCallHandler(new IosDeviceCheckPlugin());
   }
 

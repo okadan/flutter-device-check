@@ -2,29 +2,27 @@ import 'dart:io';
 
 import 'package:flutter/services.dart';
 
-/// Flutter plugin for iOS DeviceCheck.
+/// A Flutter plugin to use iOS DeviceCheck.
 /// 
 /// See: https://developer.apple.com/documentation/devicecheck
 class IosDeviceCheck {
-  static const _channel = MethodChannel('com.naokiokada/ios_device_check');
+  static const _channel = MethodChannel('naokiokada.com/ios_device_check');
 
   IosDeviceCheck._();
 
-  /// A Boolean value derived from `DCDevice.current.isSupported`.
+  /// A boolean value from `DCDevice.current.isSupported`.
   /// 
   /// See: https://developer.apple.com/documentation/devicecheck/dcdevice
   static Future<bool> get isSupported async {
     assert(Platform.isIOS);
-    final bool value = await _channel.invokeMethod('isSupported');
-    return value;
+    return _channel.invokeMethod('isSupported');
   }
 
-  /// A String value derived from `DCDevice.current.generateToken()`.
+  /// A string value from `DCDevice.current.generateToken()` that using Base64Encoding.
   /// 
   /// See: https://developer.apple.com/documentation/devicecheck/dcdevice
   static Future<String> generateToken() async {
     assert(Platform.isIOS);
-    final String value = await _channel.invokeMethod('generateToken');
-    return value;
+    return _channel.invokeMethod('generateToken');
   }
 }

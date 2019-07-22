@@ -3,7 +3,7 @@
 @implementation IosDeviceCheckPlugin
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
   FlutterMethodChannel* channel = [FlutterMethodChannel
-      methodChannelWithName:@"com.naokiokada/ios_device_check"
+      methodChannelWithName:@"naokiokada.com/ios_device_check"
             binaryMessenger:[registrar messenger]];
   IosDeviceCheckPlugin* instance = [[IosDeviceCheckPlugin alloc] init];
   [registrar addMethodCallDelegate:instance channel:channel];

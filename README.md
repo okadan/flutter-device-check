@@ -6,7 +6,7 @@ A Flutter plugin to use iOS DeviceCheck.
 
 To use this plugin, add `ios_device_check` as a [dependency in your pubspec.yaml file](https://flutter.io/platform-plugins/).
 
-Then,
+Example:
 
 ``` dart
 import 'package:ios_device_check/ios_device_check.dart';

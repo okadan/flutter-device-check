@@ -10,17 +10,15 @@ class IosDeviceCheck {
 
   IosDeviceCheck._();
 
-  /// A boolean value from `DCDevice.current.isSupported`.
-  /// 
-  /// See: https://developer.apple.com/documentation/devicecheck/dcdevice
+  /// A Boolean value indicating whether the DeviceCheck APIs are available on the current device.
   static Future<bool> get isSupported async {
     assert(Platform.isIOS);
     return _channel.invokeMethod('isSupported');
   }
 
-  /// A string value from `DCDevice.current.generateToken()` that using Base64Encoding.
+  /// Generates a token that identifies the current device.
   /// 
-  /// See: https://developer.apple.com/documentation/devicecheck/dcdevice
+  /// Converted to string from NSData from ios platform using Base64-encoding.
   static Future<String> generateToken() async {
     assert(Platform.isIOS);
     return _channel.invokeMethod('generateToken');

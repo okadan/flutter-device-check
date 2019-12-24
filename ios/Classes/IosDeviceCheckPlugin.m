@@ -1,35 +1,15 @@
 #import "IosDeviceCheckPlugin.h"
+#if __has_include(<ios_device_check/ios_device_check-Swift.h>)
+#import <ios_device_check/ios_device_check-Swift.h>
+#else
+// Support project import fallback if the generated compatibility header
+// is not copied when this plugin is created as a library.
+// https://forums.swift.org/t/swift-static-libraries-dont-copy-generated-objective-c-header/19816
+#import "ios_device_check-Swift.h"
+#endif
 
 @implementation IosDeviceCheckPlugin
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
-  FlutterMethodChannel* channel = [FlutterMethodChannel
-      methodChannelWithName:@"naokiokada.com/ios_device_check"
-            binaryMessenger:[registrar messenger]];
-  IosDeviceCheckPlugin* instance = [[IosDeviceCheckPlugin alloc] init];
-  [registrar addMethodCallDelegate:instance channel:channel];
-}
-
-- (void)handleMethodCall:(FlutterMethodCall*)call result:(FlutterResult)result {
-  if (@available(iOS 11, *)) {
-    if ([@"isSupported" isEqualToString:call.method]) {
-      result(@([[DCDevice currentDevice] isSupported]));
-    } else if ([@"generateToken" isEqualToString:call.method]) {
-      [[DCDevice currentDevice] generateTokenWithCompletionHandler:^(NSData* token, NSError* error) {
-        if (token != nil) {
-          result([token base64EncodedStringWithOptions:0]);
-          return;
-        }
-        result([FlutterError errorWithCode:[NSString stringWithFormat:@"%d", (int)error.code]
-                                   message:error.domain
-                                   details:error.localizedDescription]);
-      }];
-    } else {
-      result(FlutterMethodNotImplemented);
-    }
-  } else {
-    result([FlutterError errorWithCode:@"unavailable"
-                               message:@"DeviceCheck is only available on iOS 11.0 or newer"
-                               details:nil]);
-  }
+  [SwiftIosDeviceCheckPlugin registerWithRegistrar:registrar];
 }
 @end

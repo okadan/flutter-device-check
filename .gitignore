@@ -8,6 +8,8 @@
 .dart_tool/
 pubspec.lock
 flutter_export_environment.sh
+.flutter-plugins
+.flutter-plugins-dependencies
 
 Podfile
 Podfile.lock
@@ -32,4 +34,3 @@ GeneratedPluginRegistrant.h
 GeneratedPluginRegistrant.m
 GeneratedPluginRegistrant.java
 build/
-.flutter-plugins

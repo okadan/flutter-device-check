@@ -1,8 +1,7 @@
 name: ios_device_check
-description: A Flutter plugin to use iOS DeviceCheck. Only Supported on iOS 11.0 or newer.
-author: Naoki Okada <naoki.okada@hotmail.com>
+description: A Flutter plugin to use iOS DeviceCheck. Only supported on iOS 11.0 or newer.
+version: 1.1.0
 homepage: https://github.com/okadan/flutter_ios_device_check
-version: 1.0.2
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
@@ -17,5 +16,6 @@ dev_dependencies:
 
 flutter:
   plugin:
-    androidPackage: com.naokiokada.ios_device_check
-    pluginClass: IosDeviceCheckPlugin
+    platforms:
+      ios:
+        pluginClass: IosDeviceCheckPlugin

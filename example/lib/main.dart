@@ -6,11 +6,11 @@ void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => _MyAppState();
+  State<StatefulWidget> createState() => MyAppState();
 }
 
-class _MyAppState extends State<MyApp> {
-  String _token = '';
+class MyAppState extends State<MyApp> {
+  dynamic _result;
 
   @override
   void initState() {
@@ -18,32 +18,24 @@ class _MyAppState extends State<MyApp> {
     _generateToken();
   }
 
-  Future<void> _generateToken() async {
-    if (!(await IosDeviceCheck.isSupported)) {
+  void _generateToken() async {
+    if (!(await IosDeviceCheck.isSupported())) {
       setState(() {
-        _token = 'Not Supported';
+        _result = 'Not supported';
       });
       return;
     }
 
-    String token;
-
     try {
-      token = await IosDeviceCheck.generateToken();
+      String token = await IosDeviceCheck.generateToken();
+      setState(() {
+        _result = token;
+      });
     } on PlatformException catch (e) {
-      token = 
-        'Failed to generate token\n'
-        'Code: ${e.code}\n'
-        'Message: ${e.message}\n'
-        'Details: ${e.details}';
+      setState(() {
+        _result = '[Error]: ${e.code} / ${e.message} / ${e.details}';
+      });
     }
-
-    if (!mounted)
-      return;
-
-    setState(() {
-      _token = token;
-    });
   }
 
   @override
@@ -51,15 +43,33 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('IosDeviceCheck Example App'),
+          title: Text('IosDeviceCheck Plugin Example'),
         ),
-        body: SingleChildScrollView(
-          padding: EdgeInsets.all(8),
-          child: Text(_token),
-        ),
-        floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.refresh),
-          onPressed: _generateToken,
+        body: SafeArea(
+          child: Column(
+            children: [
+              Flexible(
+                flex: 8,
+                child: Container(
+                  constraints: BoxConstraints.expand(),
+                  decoration: BoxDecoration(border: Border.all()),
+                  margin: EdgeInsets.all(8),
+                  padding: EdgeInsets.all(8),
+                  child: SingleChildScrollView(
+                    child: Text('${_result ?? ''}'),
+                  ),
+                ),
+              ),
+
+              Flexible(
+                flex: 2,
+                child: RaisedButton(
+                  child: Text('generateToken'),
+                  onPressed: _generateToken,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

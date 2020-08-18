@@ -1,3 +1,7 @@
+## 1.3.0+1
+
+* Update doc.
+
 ## 1.3.0
 
 * Upgrade flutter project files.

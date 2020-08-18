@@ -1,10 +1,10 @@
 import 'package:flutter/services.dart';
 
 const MethodChannel _channel =
-  MethodChannel('plugins.flutter.io/ios_device_check');
+    MethodChannel('plugins.flutter.io/ios_device_check');
 
 /// Flutter plugin for accessing the iOS DeviceCheck.
-/// 
+///
 /// See: https://developer.apple.com/documentation/devicecheck
 class IosDeviceCheck {
   IosDeviceCheck._();
@@ -15,7 +15,7 @@ class IosDeviceCheck {
   }
 
   /// Generates a token that identifies the current device.
-  /// 
+  ///
   /// Converted to string from NSData from ios platform using Base64-encoding.
   static Future<String> generateToken() async {
     return _channel.invokeMethod('generateToken');

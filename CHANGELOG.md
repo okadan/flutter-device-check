@@ -1,20 +1,25 @@
+## 1.3.0
+
+* Upgrade flutter project files.
+* Increse the flutter SDK requirement to ^1.20.0.
+
 ## 1.2.0
 
-*  increase the Flutter SDK requirement to ^1.10.0
+* Increase the flutter SDK requirement to ^1.10.0.
 
 ## 1.1.0
 
-* upgrade flutter project files
-* make `isSupported` to callable
+* Upgrade flutter project files.
+* Change `isSupported` to function.
 
 ## 1.0.2
 
-* update doc
+* Update doc.
 
 ## 1.0.1
 
-* internal improvement
+* Internal improvement.
 
 ## 1.0.0
 
-* release
+* Release.

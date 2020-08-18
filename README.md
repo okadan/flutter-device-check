@@ -1,6 +1,12 @@
 # ios_device_check
 
-A Flutter plugin to use iOS DeviceCheck.
+Flutter plugin for accessing the iOS DeviceCheck.
+
+**NOTE**
+
+The DeviceCheck API is only available in iOS 11.0 or newer.
+
+If plugin is invoked on unsupported platform, the error will be thrown.
 
 ## Usage
 
@@ -16,8 +22,4 @@ bool isSupported = await IosDeviceCheck.isSupported();
 String token = await IosDeviceCheck.generateToken();
 ```
 
-## Note
-
-DeviceCheck API is only available on iOS 11.0 or newer.
-
-If the plugin is invoked on unsupported platform, the error will be thrown.
+Please see the [API Doc]((https://pub.dev/documentation/ios_device_check/latest/)) for more details.

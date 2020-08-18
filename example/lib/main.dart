@@ -20,21 +20,15 @@ class MyAppState extends State<MyApp> {
 
   void _generateToken() async {
     if (!(await IosDeviceCheck.isSupported())) {
-      setState(() {
-        _result = 'Not supported';
-      });
+      setState(() => _result = 'Not supported');
       return;
     }
 
     try {
       String token = await IosDeviceCheck.generateToken();
-      setState(() {
-        _result = token;
-      });
+      setState(() => _result = token);
     } on PlatformException catch (e) {
-      setState(() {
-        _result = '[Error]: ${e.code} / ${e.message} / ${e.details}';
-      });
+      setState(() => _result = '[Error]: ${e.code} / ${e.message} / ${e.details}');
     }
   }
 
@@ -48,10 +42,9 @@ class MyAppState extends State<MyApp> {
         body: SafeArea(
           child: Column(
             children: [
-              Flexible(
+              Expanded(
                 flex: 8,
                 child: Container(
-                  constraints: BoxConstraints.expand(),
                   decoration: BoxDecoration(border: Border.all()),
                   margin: EdgeInsets.all(8),
                   padding: EdgeInsets.all(8),

@@ -3,18 +3,17 @@ description: Demonstrates how to use the ios_device_check plugin.
 publish_to: 'none'
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
+  ios_device_check:
+    path: ../
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
-  ios_device_check:
-    path: ../
 
 flutter:
   uses-material-design: true

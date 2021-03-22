@@ -11,13 +11,13 @@ class IosDeviceCheck {
 
   /// The value indicating whether the DeviceCheck API is available on the current device.
   static Future<bool> isSupported() async {
-    return _channel.invokeMethod('isSupported');
+    return _channel.invokeMethod('isSupported').then((value) => value!);
   }
 
   /// Generates a token that identifies the current device.
   ///
   /// Converted to string from NSData from ios platform using Base64-encoding.
   static Future<String> generateToken() async {
-    return _channel.invokeMethod('generateToken');
+    return _channel.invokeMethod('generateToken').then((value) => value!);
   }
 }

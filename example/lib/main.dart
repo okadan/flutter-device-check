@@ -28,7 +28,8 @@ class MyAppState extends State<MyApp> {
       String token = await IosDeviceCheck.generateToken();
       setState(() => _result = token);
     } on PlatformException catch (e) {
-      setState(() => _result = '[Error]: ${e.code} / ${e.message} / ${e.details}');
+      setState(
+          () => _result = '[Error]: ${e.code} / ${e.message} / ${e.details}');
     }
   }
 
@@ -53,10 +54,9 @@ class MyAppState extends State<MyApp> {
                   ),
                 ),
               ),
-
               Flexible(
                 flex: 2,
-                child: RaisedButton(
+                child: ElevatedButton(
                   child: Text('generateToken'),
                   onPressed: _generateToken,
                 ),

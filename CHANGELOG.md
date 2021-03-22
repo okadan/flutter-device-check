@@ -1,3 +1,7 @@
+## 2.0.0
+
+* Upgrade to null safety.
+
 ## 1.3.0+1
 
 * Update doc.

@@ -6,10 +6,8 @@
 .packages
 .pub/
 .dart_tool/
-build/
 pubspec.lock
-.flutter-plugins
-.flutter-plugins-dependencies
+flutter_export_environment.sh
 
 Podfile
 Podfile.lock
@@ -17,6 +15,7 @@ Pods/
 .symlinks/
 **/Flutter/App.framework/
 **/Flutter/ephemeral/
+**/Flutter/Flutter.podspec
 **/Flutter/Flutter.framework/
 **/Flutter/Generated.xcconfig
 **/Flutter/flutter_assets/
@@ -24,7 +23,6 @@ Pods/
 ServiceDefinitions.json
 xcuserdata/
 **/DerivedData/
-flutter_export_environment.sh
 
 local.properties
 keystore.properties
@@ -32,6 +30,7 @@ keystore.properties
 gradlew
 gradlew.bat
 gradle-wrapper.jar
+.flutter-plugins-dependencies
 *.iml
 
 generated_plugin_registrant.dart
@@ -40,6 +39,8 @@ GeneratedPluginRegistrant.m
 generated_plugin_registrant.cc
 GeneratedPluginRegistrant.java
 GeneratedPluginRegistrant.swift
+build/
+.flutter-plugins
 
 .project
 .classpath

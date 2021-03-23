@@ -1,62 +1,65 @@
 import 'dart:typed_data';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
 const MethodChannel _channel = MethodChannel('plugins.flutter.io/device_check');
 
-/// DCDevice
+/// This class contains methods to access DeviceCheck's [DCDevice](https://developer.apple.com/documentation/devicecheck/dcdevice) API.
 class DCDevice {
-  const DCDevice._();
-  static DCDevice _instance;
+  DCDevice._();
+  static DCDevice? _instance;
   static DCDevice get instance => _instance ??= DCDevice._();
 
-  /// DCDevice.isSupported
+  /// Dart method to access DCDevice's `isSupported` API.
   Future<bool> isSupported() async {
-    return _channel.invokeMethod('Device#isSupported');
+    return _channel.invokeMethod('Device#isSupported')
+      .then((value) => value!);
   }
 
-  /// DCDevice.generateToken
+  /// Dart method to access DCDevice's `generateToken` API.
   Future<Uint8List> generateToken() async {
-    return _channel.invokeMethod('Device#generateToken');
+    return _channel.invokeMethod('Device#generateToken')
+      .then((value) => value!);
   }
 }
 
-/// DCAppAttestService
+/// This class contains methods to access DeviceCheck's [DCAppAttestService](https://developer.apple.com/documentation/devicecheck/dcappattestservice) API.
 class DCAppAttestService {
-  const DCAppAttestService._();
-  static DCAppAttestService _instance;
+  DCAppAttestService._();
+  static DCAppAttestService? _instance;
   static DCAppAttestService get instance => _instance ??= DCAppAttestService._();
 
-  /// DCAppAttestService.isSupported
+  /// Dart method to access DCAppAttestService's `isSupported` API.
   Future<bool> isSupported() async {
-    return _channel.invokeMethod('AppAttestService#isSupported');
+    return _channel.invokeMethod('AppAttestService#isSupported')
+      .then((value) => value!);
   }
 
-  /// DCAppAttestService.generateKey
+  /// Dart method to access DCAppAttestService's `generateKey` API.
   Future<String> generateKey() async {
-    return _channel.invokeMethod('AppAttestService#generateKey');
+    return _channel.invokeMethod('AppAttestService#generateKey')
+      .then((value) => value!);
   }
 
-  /// DCAppAttestService.attestKey
+  /// Dart method to access DCAppAttestService's `attestKey` API.
   Future<Uint8List> attestKey({
-    @required String keyId,
-    @required Uint8List clientDataHash,
+    required String keyId,
+    required Uint8List clientDataHash,
   }) async {
     return _channel.invokeMethod('AppAttestService#attestKey', {
       'keyId': keyId,
       'clientDataHash': clientDataHash,
-    });
+    }).then((value) => value!);
   }
 
-  /// DCAppAttestService.generateAssertion
+  /// Dart method to access DCAppAttestService's `generateAssertion` API.
   Future<Uint8List> generateAssertion({
-    @required String keyId,
-    @required Uint8List clientDataHash,
+    required String keyId,
+    required Uint8List clientDataHash,
   }) async {
     return _channel.invokeMethod('AppAttestService#generateAssertion', {
       'keyId': keyId,
       'clientDataHash': clientDataHash,
-    });
+    }).then((value) => value!);
   }
 }

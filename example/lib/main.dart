@@ -1,6 +1,3 @@
-import 'package:device_check/device_check.dart';
-
-void main() {
-  /// FIXME: add example
-  print('${DCDevice.instance} ${DCAppAttestService.instance}');
-}
+/// This plugin is just a bridge to Apple's DeviceCheck API.
+/// See the [official documentation](https://developer.apple.com/documentation/devicecheck) for detailed usage.
+void main() {}

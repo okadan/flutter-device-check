@@ -1,3 +1,7 @@
+## 0.1.0+2
+
+* Flutter format.
+
 ## 0.1.0+1
 
 * Update README.

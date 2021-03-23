@@ -12,14 +12,14 @@ class DCDevice {
 
   /// Dart method to access DCDevice's `isSupported` API.
   Future<bool> isSupported() async {
-    return _channel.invokeMethod('Device#isSupported')
-      .then((value) => value!);
+    return _channel.invokeMethod('Device#isSupported').then((value) => value!);
   }
 
   /// Dart method to access DCDevice's `generateToken` API.
   Future<Uint8List> generateToken() async {
-    return _channel.invokeMethod('Device#generateToken')
-      .then((value) => value!);
+    return _channel
+        .invokeMethod('Device#generateToken')
+        .then((value) => value!);
   }
 }
 
@@ -27,18 +27,21 @@ class DCDevice {
 class DCAppAttestService {
   DCAppAttestService._();
   static DCAppAttestService? _instance;
-  static DCAppAttestService get instance => _instance ??= DCAppAttestService._();
+  static DCAppAttestService get instance =>
+      _instance ??= DCAppAttestService._();
 
   /// Dart method to access DCAppAttestService's `isSupported` API.
   Future<bool> isSupported() async {
-    return _channel.invokeMethod('AppAttestService#isSupported')
-      .then((value) => value!);
+    return _channel
+        .invokeMethod('AppAttestService#isSupported')
+        .then((value) => value!);
   }
 
   /// Dart method to access DCAppAttestService's `generateKey` API.
   Future<String> generateKey() async {
-    return _channel.invokeMethod('AppAttestService#generateKey')
-      .then((value) => value!);
+    return _channel
+        .invokeMethod('AppAttestService#generateKey')
+        .then((value) => value!);
   }
 
   /// Dart method to access DCAppAttestService's `attestKey` API.

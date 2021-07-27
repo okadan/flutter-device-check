@@ -1,6 +1,6 @@
-# device_check_example
+# ios_device_check_example
 
-Demonstrates how to use the device_check plugin.
+Demonstrates how to use the ios_device_check plugin.
 
 ## Getting Started
 

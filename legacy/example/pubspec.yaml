@@ -1,14 +1,14 @@
-name: device_check_example
-description: Demonstrates how to use the device_check plugin.
+name: ios_device_check_example
+description: Demonstrates how to use the ios_device_check plugin.
 publish_to: 'none'
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  device_check:
+  ios_device_check:
     path: ../
 
 dev_dependencies:

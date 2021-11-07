@@ -1,6 +1,6 @@
 name: device_check
-description: Flutter plugin for accessing the Apple's DeviceCheck API.
-version: 0.1.0+2
+description: Flutter plugin for using the Apple's DeviceCheck API on iOS.
+version: 1.0.0
 homepage: https://github.com/okadan/flutter-device-check
 
 environment:
@@ -14,6 +14,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  pigeon:
 
 flutter:
   plugin:

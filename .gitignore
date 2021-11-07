@@ -9,7 +9,6 @@
 pubspec.lock
 flutter_export_environment.sh
 
-Podfile
 Podfile.lock
 Pods/
 .symlinks/
